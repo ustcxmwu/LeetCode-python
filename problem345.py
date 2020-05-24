@@ -1,16 +1,16 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        dic = ['a', 'o', 'e', 'i', 'u']
+        if len(s) == 0:
+            return ""
+        dic = set(['a', 'o', 'e', 'i', 'u', 'A', 'O', 'E', 'I', 'U'])
         i = 0
         j = len(s)-1
         ss = list(s)
         while i < j:
-            while ss[i] not in dic:
+            while i < len(s) and ss[i] not in dic:
                 i += 1
-            while ss[j] not in dic:
+            while j > 0 and ss[j] not in dic:
                 j -= 1
-            if i == len(s)-1 or j == 0:
-                break
             if i < j:
                 t = ss[i]
                 ss[i] = ss[j]
@@ -23,4 +23,5 @@ class Solution:
 if __name__ == '__main__':
     print(len('aaaa'))
     sol = Solution()
-    print(sol.reverseVowels('leetcode'))
+    print(sol.reverseVowels('.,'))
+
