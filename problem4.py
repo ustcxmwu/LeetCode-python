@@ -1,43 +1,6 @@
 from typing import List
 
 
-def median(nums: List[int]) -> float:
-    if len(nums) % 2 == 0:
-        return (nums[len(nums) // 2] + nums[len(nums) // 2 - 1]) / 2.0
-    else:
-        return float(nums[len(nums) // 2])
-
-
-#
-# class Solution:
-#     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-#         if len(nums1) == 0:
-#             if len(nums2) == 0:
-#                 return 0.0
-#             else:
-#                 return median(nums2)
-#         else:
-#             if len(nums2) == 0:
-#                 return median(nums1)
-#         i = 0
-#         j = 0
-#         tmp = list()
-#         while True:
-#             if nums1[i] <= nums2[j]:
-#                 tmp.append(nums1[i])
-#                 i += 1
-#                 if i == len(nums1):
-#                     tmp.extend(nums2[j::])
-#                     break
-#             else:
-#                 tmp.append(nums2[j])
-#                 j += 1
-#                 if j == len(nums2):
-#                     tmp.extend(nums1[i::])
-#                     break
-#         return median(tmp)
-
-
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         if len(nums1) < len(nums2):
@@ -65,3 +28,4 @@ if __name__ == '__main__':
     b = [-1, 3]
     sol = Solution()
     print(sol.findMedianSortedArrays(a, b))
+
